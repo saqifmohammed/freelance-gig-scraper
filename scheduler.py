@@ -4,8 +4,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 from apscheduler.triggers.interval import IntervalTrigger
 from datetime import datetime
 from config import scheduler_config
-from scrapers import UpworkScraper, FreelancerScraper, ToptalScraper, FiverrScraper
-from scrapers.tavily_freelancer import TavilyFreelancerScraper
+from scrapers import TavilyFreelancerScraper
 from ai_processor import JobFilter
 from email_sender import EmailSender
 from excel_storage import ExcelStorage
@@ -23,10 +22,6 @@ class JobAutomation:
 
     async def run_scrapers(self) -> list:
         scrapers = [
-            UpworkScraper(),
-            FreelancerScraper(),
-            ToptalScraper(),
-            FiverrScraper(),
             TavilyFreelancerScraper()
         ]
 
